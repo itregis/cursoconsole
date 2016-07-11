@@ -10,6 +10,7 @@ namespace CursoConsole
     {
         static void Main(string[] args)
         {
+            //
         }
     }
 }
