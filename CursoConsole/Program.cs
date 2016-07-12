@@ -9,7 +9,7 @@ namespace CursoConsole
     class Program
     {
         static void Main(string[] args)
-        {//
+        {
             int opcao, operacao=0;
             String cliente="", produto="";
 
