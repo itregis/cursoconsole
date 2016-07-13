@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,8 @@ namespace CursoConsole
         {
             int opcao, operacao=0;
             String cliente="", produto="";
+            List<String> LisCli= new List<string>();
+            ArrayList ListProduto = new ArrayList();
 
             Console.Clear();
             Console.WriteLine("1- Cliente");
@@ -21,6 +24,7 @@ namespace CursoConsole
             opcao = Convert.ToInt32(Console.ReadLine());
 
             Console.Clear();
+            do{
             switch(opcao){
 
                 case 1:
@@ -45,29 +49,59 @@ namespace CursoConsole
             if(opcao==1){
                 if (operacao == 1)
                 {
-                    Console.Write("Informe o nome:"); 
+                    Console.Write("Informe o nome do Cliente:");
                     cliente = Console.ReadLine();
+                    LisCli.Add(cliente);
+                    Console.Clear();
                 }else if(operacao==2){
-                    Console.WriteLine("Nome do Cliente: " + cliente); 
+                    foreach(String cli in LisCli){
+
+                    Console.WriteLine("Nome do Cliente: " + cli); 
+                    }
+                    if (LisCli.Count <= 0)
+                    {
+                        Console.Write("Inválido");
+                                               
+                    }
+
                     Console.ReadKey();
+                    Console.Clear();
                 }
                 else
                 {
                     Console.Write("Inválido");
+                    Console.ReadKey();
                 }
             }else if(opcao==2){
                 if(operacao==1){
-                    Console.Write("Informe o nome:"); 
-                    cliente = Console.ReadLine();
-
+                    Console.Write("Informe o nome do Produto:"); 
+                    produto = Console.ReadLine();
+                    ListProduto.Add(produto);
+                    
                 }else if(operacao==2){
-                    Console.WriteLine("Nome do Produto: " + produto); 
+                    foreach(String prod in ListProduto){
+
+                    Console.WriteLine("Nome do Produto: " + prod); 
+                    }
+
+                    if (ListProduto.Count <= 0)
+                    {
+                        Console.Write("Inválido");
+
+                    }
                     Console.ReadKey();
+                    Console.Clear();
                 }
                 else
                 {
                     Console.Write("Inválido");
                 }
+            }
+
+            } while (opcao != 3);
+            {
+                Console.Write("Opção Inválida");
+                Console.ReadKey();
             }
         }
     }
